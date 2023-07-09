@@ -5,16 +5,21 @@ const cors = require("cors");
 const port = process.env.PORT || 5000;
 var host = process.env.HOST || '0.0.0.0';
 const mysql = require('mysql');
+require('dotenv').config();
 app.use(cors());
 
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }))
 
 const con = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'SmileHappy',
-    database: 'booking',
+    host: process.env.host,
+    user: process.env.user,
+    password: process.env.password,
+    database: process.env.database
+    // host: 'localhost',
+    // user: 'root',
+    // password: 'SmileHappy',
+    // database: 'booking',
 }) 
 
 //get data whose status is 1, that is booked
