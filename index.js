@@ -12,10 +12,10 @@ app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }))
 
 const con = mysql.createConnection({
-    host: process.env.host,
-    user: process.env.user,
-    password: process.env.password,
-    database: process.env.database
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
     // host: 'localhost',
     // user: 'root',
     // password: 'SmileHappy',
