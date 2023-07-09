@@ -6,8 +6,6 @@ const port = process.env.PORT || 5000;
 var host = process.env.HOST || '0.0.0.0';
 const mysql = require('mysql');
 require('dotenv').config();
-const AWS = require("aws-sdk");
-const s3 = new AWS.S3()
 app.use(cors());
 
 app.use(bodyParser.json()) // for parsing application/json
@@ -23,21 +21,6 @@ const con = mysql.createConnection({
     // password: 'SmileHappy',
     // database: 'booking',
 }) 
-
-// store something
-await s3.putObject({
-    Body: JSON.stringify({key:"value"}),
-    Bucket: "cyclic-adorable-tan-tiara-ap-south-1",
-    Key: "some_files/my_file.json",
-}).promise()
-
-// get it back
-let my_file = await s3.getObject({
-    Bucket: "cyclic-adorable-tan-tiara-ap-south-1",
-    Key: "some_files/my_file.json",
-}).promise()
-
-console.log(JSON.parse(my_file))
 
 //get data whose status is 1, that is booked
 app.get('/data', (req, res) => {
