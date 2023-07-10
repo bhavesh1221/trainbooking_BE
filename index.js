@@ -24,7 +24,7 @@ const con = mysql.createConnection({
 
 //get data whose status is 1, that is booked
 app.get('/data', (req, res) => {
-  const query = 'SELECT * FROM usertable WHERE status = 1';
+  const query = 'SELECT * FROM TABLE 1 WHERE status = 1';
 
   con.query(query, (err, results) => {
     if (err) {
@@ -46,7 +46,7 @@ app.put('/seats', (req, res) => {
     const seatIdArray = Array.isArray(seatIds) ? seatIds : [seatIds];
   
     // Prepare the SQL query
-    const updateQuery = `UPDATE usertable SET status = ? WHERE seat IN (?)`;
+    const updateQuery = `UPDATE TABLE 1 SET status = ? WHERE seat IN (?)`;
     const values = [status, seatIdArray];
   
     // Execute the query
