@@ -29,7 +29,7 @@ app.get('/data', (req, res) => {
   con.query(query, (err, results) => {
     if (err) {
       console.error(err);
-      res.status(500).json({ error: 'Internal server error' });
+      res.status(500).json({ error: 'Internal server error - Error from BE' });
     } else {
      const seatValues = results.map((row) => row.seat);
       res.status(200).json(seatValues);
